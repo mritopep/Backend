@@ -1,6 +1,5 @@
 from flask import Flask, request, redirect, session
 import json
-import flask_socketio
 from numpy import save
 from mri2pet import Mri2Pet
 from os import path, mkdir, listdir, unlink
