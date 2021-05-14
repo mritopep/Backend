@@ -231,6 +231,8 @@ def handle_messages(json_message):
         upload_file(dbx, "/pet.zip", pet_zip)
 
         pet_zip_upload['data']['uploaded'] = True
+        pet_zip_upload['url'] = dbx.sharing_create_shared_link_with_settings("/pet.zip").url
+
 
         emit(pet_zip_upload)
 
