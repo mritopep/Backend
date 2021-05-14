@@ -244,8 +244,8 @@ def handle_messages(json_message):
         dbx.files_delete("/mri_img.zip")
         dbx.files_delete("/pet_img.zip")
 
-        delete_contents("input")
-        delete_contents("output")
+        delete_contents(path.join(app_root, "input"))
+        delete_contents(path.join(app_root, "output"))
 
     
 
