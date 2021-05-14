@@ -137,7 +137,7 @@ def handle_messages(json_message):
         session['Denoise'] = json_message['data']['denoise']
         session['Bias_Correction'] = json_message['data']['bias_correction']
 
-    if json_message['id'] == "MRI_UPLOAD" and json_message['data']['uploaded'] == True:
+    if json_message['id'] == "MRI_ZIP_UPLOAD" and json_message['data']['uploaded'] == True:
 
         print(bcolors.OKBLUE + "Starting" + bcolors.ENDC)
 
