@@ -15,7 +15,7 @@
 - data:
   - denoise : boolean
   - skull_strip : boolean
-  - bais_correction : boolean
+  - bias_correction : boolean
 
 ### Mri zip upload 
 - id: MRI_ZIP_UPLOAD
@@ -36,7 +36,7 @@
   - total_slice_number : int
 
 ### Pet image upload 
-- id: MRI_IMG_UPLOAD
+- id: PET_IMG_UPLOAD
 - data:
   - uploaded : boolean
   - url : str
