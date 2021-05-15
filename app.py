@@ -224,7 +224,6 @@ def handle_messages(json_message):
 
 
 
-
         pet_zip_upload = dict()
         pet_zip_upload['id'] = "PET_ZIP_UPLOAD"
         pet_zip_upload['data'] = dict()
