@@ -256,7 +256,7 @@ def handle_messages(json_message):
 
 
 def emit(data):
-    socketio.emit(MESSAGE_EVENT, data)
+    socketio.emit(MESSAGE_EVENT, json.dumps(data))
 
 
 if __name__ == '__main__':
