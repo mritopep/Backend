@@ -200,7 +200,7 @@ def handle_messages(json_message):
         upload_file(dbx, "/pet_img.zip", path.join(app_root, 'output', "pet_img.zip"))
 
         pet_img_upload['data']['uploaded'] = True
-        pet_img_upload['url'] = dbx.sharing_create_shared_link_with_settings("/pet_img.zip").url
+        pet_img_upload['data']['url'] = dbx.sharing_create_shared_link_with_settings("/pet_img.zip").url
 
         emit(pet_img_upload)
 
@@ -217,7 +217,7 @@ def handle_messages(json_message):
         upload_file(dbx, "/mri_img.zip", path.join(app_root, 'input', "mri_img.zip"))
 
         mri_img_upload['data']['uploaded'] = True
-        mri_img_upload['url'] = dbx.sharing_create_shared_link_with_settings("/mri_img.zip").url
+        mri_img_upload['data']['url'] = dbx.sharing_create_shared_link_with_settings("/mri_img.zip").url
 
         emit(mri_img_upload)
 
@@ -231,7 +231,7 @@ def handle_messages(json_message):
         upload_file(dbx, "/pet.zip", pet_zip)
 
         pet_zip_upload['data']['uploaded'] = True
-        pet_zip_upload['url'] = dbx.sharing_create_shared_link_with_settings("/pet.zip").url
+        pet_zip_upload['data']['url'] = dbx.sharing_create_shared_link_with_settings("/pet.zip").url
 
 
         emit(pet_zip_upload)

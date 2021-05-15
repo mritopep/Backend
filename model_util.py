@@ -1,7 +1,7 @@
 from keras.models import load_model
 import nibabel as nib
 from numpy import load, zeros, copy, arange, eye
-from os import path
+from os import path, rename
 from statuses import BIAS_CORRECTION, DENOISE, SKULL_STRIP
 import cv2
 from os import listdir
@@ -80,8 +80,15 @@ def gamma_correction(image):
 
 
 def read_nifti(file):
-    convert(file, "./input/img/img")
+    convert(file, "./input/img/")
     folder = "./input/img"
+    files = sorted(listdir(folder))
+
+    slice_no = 0
+    for i in files:
+        rename(path.join(folder, i), path.join(folder, str(slice_no)+".png"))
+        slice_no += 1
+
     files = sorted(listdir(folder))
     images = []
 
