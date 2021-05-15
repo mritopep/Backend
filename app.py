@@ -186,24 +186,8 @@ def handle_messages(json_message):
                 Denoise=session['Denoise'], Bias_Correction=session['Bias_Correction'], status=status)
       
 
-        pet_img_folder = path.join(app_root, 'output', "img")
-        shutil.make_archive(path.join(app_root, 'output', "pet_img"), 'zip', pet_img_folder)
-
-        pet_img_upload = dict()
-        pet_img_upload['id'] = "PET_IMG_UPLOAD"
-        pet_img_upload['data'] = dict()
-        pet_img_upload['data']['total_slice_number'] = len(listdir(pet_img_folder))
-
         status['data'][UPLOAD_START] = True
         emit(status)
-
-        upload_file(dbx, "/pet_img.zip", path.join(app_root, 'output', "pet_img.zip"))
-
-        pet_img_upload['data']['uploaded'] = True
-        pet_img_upload['data']['url'] = dbx.sharing_create_shared_link_with_settings("/pet_img.zip").url
-
-        emit(pet_img_upload)
-
 
 
         mri_img_folder = path.join(app_root, 'input', "img")
@@ -220,6 +204,24 @@ def handle_messages(json_message):
         mri_img_upload['data']['url'] = dbx.sharing_create_shared_link_with_settings("/mri_img.zip").url
 
         emit(mri_img_upload)
+
+
+
+        pet_img_folder = path.join(app_root, 'output', "img")
+        shutil.make_archive(path.join(app_root, 'output', "pet_img"), 'zip', pet_img_folder)
+
+        pet_img_upload = dict()
+        pet_img_upload['id'] = "PET_IMG_UPLOAD"
+        pet_img_upload['data'] = dict()
+        pet_img_upload['data']['total_slice_number'] = len(listdir(pet_img_folder))
+
+        upload_file(dbx, "/pet_img.zip", path.join(app_root, 'output', "pet_img.zip"))
+
+        pet_img_upload['data']['uploaded'] = True
+        pet_img_upload['data']['url'] = dbx.sharing_create_shared_link_with_settings("/pet_img.zip").url
+
+        emit(pet_img_upload)
+
 
 
 

@@ -65,7 +65,7 @@ class Mri2Pet:
               predicted_imgs.shape, bcolors.ENDC)
 
         for i in range(len(self.img)):
-            plt.imsave(f"{predicted_data}/{i}.jpeg",
+            plt.imsave(f"{predicted_data}/{i}.png",
                        normalize(predicted_imgs[i]), cmap=plt.cm.Greys_r)
 
         self.img = predicted_imgs
