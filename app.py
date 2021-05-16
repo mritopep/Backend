@@ -243,7 +243,7 @@ def handle_messages(json_message):
     if json_message['id'] == 'DELETE_STATUS' and json_message['data']['delete'] == True:
 
         dbx.files_delete("/pet.zip")
-        dbx.files_delete("/mri.zip")
+        #dbx.files_delete("/mri.zip")
         dbx.files_delete("/mri_img.zip")
         dbx.files_delete("/pet_img.zip")
 
